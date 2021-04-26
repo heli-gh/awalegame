@@ -6,7 +6,7 @@ public class shiyan {
 
     public static void main(String[]args) throws IOException{
           final int diff =0;
-          final int round=0;
+          final int round=1;
           int para =1;
           robot Sara= new robot(diff,round);
           plateau zl= new plateau();
@@ -27,7 +27,6 @@ public class shiyan {
           while (! rule.endofgame(zl,para)){
             int theone;
             do{
-             System.out.println(zl);
 
              System.out.println("choice:");
 
@@ -42,6 +41,7 @@ public class shiyan {
                     zl.note();
                     zl.changeRound();
                     
+                  System.out.println(zl);
                 
 
 

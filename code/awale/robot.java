@@ -298,22 +298,42 @@ public class robot{
          int[] det = toolevalu(set);
          int fin=0;
          int[] ev= new int[6];
-         for (int j=6 ; j>0;j-- ){
-             int max=0;
-            for (int i =0;i<j; i++ ){
-               if (max<det[i]) max = i;
-            }
-            ev[6-j]=max;
+         int[] ord = det;
+      
+         if (set.getround()==0){   
+               for (int j=0; j<6;j++){
+                   int max=0;
+                   for (int i =0;i<6; i++ ){
+                         if (ord[max]<ord[i]) 
+                         {max =i;
+                         
+                         }
+   
+                   }
+                  ord[max]= -50;
+                  ev[j]=max;
+               }
+   
          }
-         for (int k=0; k< 6;k++){
-          if (set.getround()==0){
-              if(rule.ressonablemove(k, set)) 
-                 {fin=k;break;}}
-          else{
-              if(rule.ressonablemove(k+6, set)) 
-                 {fin=k+6;break;}}
+         else{            
+             for (int j=0 ; j<6;j++ ){
+                int max=0;
+                for (int i =0;i<6; i++ ){
+                if (ord[max]<ord[i]) max = i;
+                }
+                ord[max]=-50;
+                
+               ev[j]=max+6;
+           }
+           
          }
-
+         int t =0;
+         while(! rule.ressonablemove(ev[t], set) && t< 5 )
+         {
+            t++;   
+         }
+         fin = ev[t];
+       
          try{
              Thread.currentThread().sleep(1000);
          }

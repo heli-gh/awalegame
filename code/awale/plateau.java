@@ -91,6 +91,7 @@ public class plateau implements Serializable{
         for (int i =0;i<12; i++ ){
 
         str.append(Integer.toString(board[i].getvalue()));
+        str.append(" ");
         }
         str.append("   ");
         str.append(Integer.toString(note1));
@@ -165,7 +166,6 @@ public class plateau implements Serializable{
             }
           }
       }
-
       return det;
     }
     public void abortgame(int para){
@@ -232,7 +232,7 @@ public class plateau implements Serializable{
                     board[k].besowed();
                 
                 }
-                lastHole = (theone +quantity)%2;
+                lastHole = (theone +quantity)%12;
 
                 
                
@@ -250,7 +250,7 @@ public class plateau implements Serializable{
     
                     
                 }
-                lastHole = (theone +quantity)%2;
+                lastHole = (theone +quantity)%12;
 
                 
                

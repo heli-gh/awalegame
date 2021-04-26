@@ -41,7 +41,7 @@ public class playPanel extends JPanel  {
         
         thend = false;
         if (Sara.getround()==0){ 
-            int theone= Sara.normal(set);
+            int theone= Sara.simple(set);
 
             if (! set.affamer() && rule.ressonablemove(theone, set)){
                 set.collectandDistri(theone);
@@ -192,7 +192,7 @@ public class playPanel extends JPanel  {
                          thend =true;
                    }
                    else {  
-                            theone= Sara.normal(set);
+                            theone= Sara.simple(set);
 
                          if (rule.ressonablemove(theone, set)){
                              set.collectandDistri(theone);
