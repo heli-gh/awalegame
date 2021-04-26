@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "awale_50c1acf7"
+        },
+        {
+            "type": "java",
+            "name": "Launch debug",
+            "request": "launch",
+            "mainClass": "debug",
+            "projectName": "awale_50c1acf7"
+        },
+        {
+            "type": "java",
+            "name": "Launch play",
+            "request": "launch",
+            "mainClass": "play",
+            "projectName": "awale_50c1acf7"
+        },
+        {
+            "type": "java",
+            "name": "Launch shiyan",
+            "request": "launch",
+            "mainClass": "shiyan",
+            "projectName": "awale_50c1acf7"
+        }
+    ]
+}

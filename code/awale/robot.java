@@ -31,7 +31,8 @@ public class robot{
     int[] det= new int[6];
     int max = 0;
     int[] a= set.getnote();
-    if(rule.endofgame(set, 1) || deep==0){max= a[round]- a[(round +1)%2] ;}
+    if(rule.endofgame(set, 1) || deep==0){max= a[round]- a[(round +1)%2] ;return max;}
+    
     if(a[round] > 24){ max = 100;}
     else {
 
@@ -79,7 +80,7 @@ public class robot{
     int[] det= new int[6];
     int min=0;
     int[] a= set.getnote();
-    if(rule.endofgame(set, 1)|| deep ==  0){min= a[round]- a[(round +1)%2] ;}
+    if(rule.endofgame(set, 1)|| deep ==  0){min= a[round]- a[(round +1)%2] ; return min;}
     
     if (a[round] > 24){ min =100;}
     else{
@@ -91,6 +92,7 @@ public class robot{
               predict.note();
               predict.changeRound();
               det[i] =toolmaxturn(predict,deep-1);
+
               
              }
 
@@ -168,6 +170,7 @@ public class robot{
       
       int num =0 ;
       int[] det = new int[6];
+      int[] ev = new int[6];
       
       if (set.getround() ==0 ){
         for (int i=0 ; i<6 ; i++){
@@ -195,10 +198,42 @@ public class robot{
         }
 
       }
-      for(int i =0 ; i<6 ;i++){
-          if (det[num] < det[i]) num =i;
-      }
+ 
+      int[] ord = det;
+      
+      if (set.getround()==0){   
+            for (int j=0; j<6;j++){
+                int max=0;
+                for (int i =0;i<6; i++ ){
+                      if (ord[max]<ord[i]) 
+                      {max =i;
+                      
+                      }
 
+                }
+               ord[max]= -50;
+               ev[j]=max;
+            }
+
+      }
+      else{            
+          for (int j=0 ; j<6;j++ ){
+             int max=0;
+             for (int i =0;i<6; i++ ){
+             if (ord[max]<ord[i]) max = i;
+             }
+             ord[max]=-50;
+             
+            ev[j]=max+6;
+        }
+        
+      }
+      int t =0;
+      while(! rule.ressonablemove(ev[t], set) && t< 5 )
+      {
+         t++;   
+      }
+      num = ev[t];
     return num;
             
 

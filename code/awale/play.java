@@ -13,7 +13,7 @@ public class play {
         EventQueue.invokeLater(()->{
            JFrame f =new JFrame("Awale");
            f.setBounds(600,600,600,600);
-           int diff=0;
+           int diff=8;
            
            playPanel awale = new playPanel(diff,"lihengshuo");
            
