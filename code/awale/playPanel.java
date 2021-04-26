@@ -178,13 +178,12 @@ public class playPanel extends JPanel  {
                     int theone = 0;
                     int para=1;
                     for(int i=0 ; i<12; i++){ if (myholes[i]== hi) {theone = i;break;}}
+                    if (rule.ressonablemove(theone, set)){
 
                     if (! rule.endofgame(set,para)){
-                          if (rule.ressonablemove(theone, set)){
                               set.collectandDistri(theone);
                               set.note();
                               set.changeRound();
-                          }
                     }
 
                    changeButtonLabel();
@@ -208,6 +207,7 @@ public class playPanel extends JPanel  {
                    }
                    changeButtonLabel();
             
+                }
             }
         }
     }
